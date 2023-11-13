@@ -39,9 +39,9 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function notifications()
+    public function Analises()
     {
-        return view('pages.notifications');
+        return redirect()->route('api');
     }
 
     /**

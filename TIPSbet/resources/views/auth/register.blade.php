@@ -5,34 +5,10 @@
         <div class="col-md-5 ml-auto">
             <div class="info-area info-horizontal mt-5">
                 <div class="icon icon-warning">
-                    <i class="tim-icons icon-wifi"></i>
                 </div>
                 <div class="description">
-                    <h3 class="info-title">{{ __('Marketing') }}</h3>
-                    <p class="description">
-                        {{ __('We\'ve created the marketing campaign of the website. It was a very interesting collaboration.') }}
-                    </p>
-                </div>
-            </div>
-            <div class="info-area info-horizontal">
-                <div class="icon icon-primary">
-                    <i class="tim-icons icon-triangle-right-17"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ __('Fully Coded in HTML5') }}</h3>
-                    <p class="description">
-                        {{ __('We\'ve developed the website with HTML5 and CSS3. The client has access to the code using GitHub.') }}
-                    </p>
-                </div>
-            </div>
-            <div class="info-area info-horizontal">
-                <div class="icon icon-info">
-                    <i class="tim-icons icon-trophy"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ __('Built Audience') }}</h3>
-                    <p class="description">
-                        {{ __('There is also a Fully Customizable CMS Admin Dashboard for this product.') }}
+                    <h1 class="info-title">Bem vindo ao TIPSbet</h1>
+                    <p class="description">Ao registrar-se você terá acesso as melhores analises, alem de tips montadas.
                     </p>
                 </div>
             </div>
@@ -40,8 +16,8 @@
         <div class="col-md-7 mr-auto">
             <div class="card card-register card-white">
                 <div class="card-header">
-                    <img class="card-img" style="height:44%; position:absolute; top:0%;" src="{{ asset('black') }}/img/th2.jpg" alt="Card image">
-                    <h5 class="card-title">Bem vindo ao TIPSbet</h5>
+                    <img class="card-img" style="height:20%; position:absolute; top:0%;" src="{{ asset('black') }}/img/card-primary.png" alt="Card image">
+                    <h5 class="card-title"></h5>
                 </div>
                 <form class="form" method="post" action="{{ route('register') }}">
                     @csrf
@@ -64,6 +40,23 @@
                             </div>
                             <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
                             @include('alerts.feedback', ['field' => 'email'])
+                        </div>
+                        <div class="input-group{{ $errors->has('cpf') ? ' has-danger' : '' }}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="tim-icons icon-lock-circle"></i>
+                                </div>
+                            </div>
+                            <input type="cpf" name="cpf" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" placeholder="{{ __('CPF') }}">
+                            @include('alerts.feedback', ['field' => 'cpf'])
+                        </div>
+                        <div class="input-group{{ $errors->has('data_de_nascimento') ? ' has-danger' : '' }}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="tim-icons"></i>
+                                </div>
+                            </div>
+                                <input type="text" name="data_nascimento" id="data_nascimento" placeholder="dd/mm/aaaa" required>
                         </div>
                         <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                             <div class="input-group-prepend">
@@ -97,5 +90,6 @@
                 </form>
             </div>
         </div>
+        
     </div>
 @endsection

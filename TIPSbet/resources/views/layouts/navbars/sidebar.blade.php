@@ -24,40 +24,10 @@
                     </ul>
                 </div>
             </li>
-            <li @if ($pageSlug == 'icons') class="active " @endif>
-                <a href="{{ route('pages.icons') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ __('Icons') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'maps') class="active " @endif>
-                <a href="{{ route('pages.maps') }}">
-                    <i class="tim-icons icon-pin"></i>
-                    <p>{{ __('Maps') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'notifications') class="active " @endif>
-                <a href="{{ route('pages.notifications') }}">
+            <li @if ($pageSlug == 'Analises') class="active " @endif>
+                <a href="{{ route('pages.Analises') }}">
                     <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ __('Notificações') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'typography') class="active " @endif>
-                <a href="{{ route('pages.typography') }}">
-                    <i class="tim-icons icon-align-center"></i>
-                    <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'rtl') class="active " @endif>
-                <a href="{{ route('pages.rtl') }}">
-                    <i class="tim-icons icon-world"></i>
-                    <p>{{ __('RTL Support') }}</p>
-                </a>
-            </li>
-            <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
-                <a href="{{ route('pages.upgrade') }}">
-                    <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ __('Upgrade to PRO') }}</p>
+                    <p>{{ __('Analises') }}</p>
                 </a>
             </li>
         </ul>

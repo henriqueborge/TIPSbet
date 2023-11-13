@@ -10,8 +10,8 @@
 
             <div class="card card-login card-white">
                 <div class="card-header">
-                    <img src="{{ asset('black') }}/img/card-primary.png" alt="">
-                    <h1 class="card-title">{{ __('Entrar') }}</h1>
+                    <img style="height:35%; position:absolute; top:0%;" src="{{ asset('black') }}/img/card-primary.png" alt="">
+                    <h1 class="card-title"></h1>
                 </div>
                 <div class="card-body">
                     <p class="text-dark mb-2">Faça o login com seu <strong>Email</strong> e sua Senha <strong></strong></p>

@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ __('Edit Profile') }}</h5>
+                    <h5 class="title">{{ __('Editar Perfil') }}</h5>
                 </div>
                 <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
                     <div class="card-body">
@@ -15,15 +15,20 @@
                             @include('alerts.success')
 
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label>{{ __('Name') }}</label>
+                                <label> Nome</label>
                                 <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <label>{{ __('Email address') }}</label>
+                                <label>Email</label>
                                 <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
+                            </div>
+                            <div class="form-group{{ $errors->has('Telefone') ? ' has-danger' : '' }}">
+                                <label>Telefone</label>
+                                <input type="Telefone" name="Telefone" class="form-control{{ $errors->has('Telefone') ? ' is-invalid' : '' }}" placeholder="{{ __('Telefone') }}" value="{{ old('Telefone', auth()->user()->Telefone) }}">
+                                @include('alerts.feedback', ['field' => 'Telefone'])
                             </div>
                     </div>
                     <div class="card-footer">
@@ -79,27 +84,10 @@
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                             </a>
                             <p class="description">
-                                {{ __('Ceo/Co-Founder') }}
+                                
                             </p>
                         </div>
                     </p>
-                    <div class="card-description">
-                        {{ __('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="button-container">
-                        <button class="btn btn-icon btn-round btn-facebook">
-                            <i class="fab fa-facebook"></i>
-                        </button>
-                        <button class="btn btn-icon btn-round btn-twitter">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                        <button class="btn btn-icon btn-round btn-google">
-                            <i class="fab fa-google-plus"></i>
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
