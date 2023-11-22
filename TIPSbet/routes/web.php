@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('api',[apiController::class,"index"])->name('api');
+Route::get('desativar/{id}',[Controller::class,'desativar'])->name('desativar');
+Route::get('odds',[apiController::class,"index"])->name('odds');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,7 +32,7 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-		Route::get('Analises', ['as' => 'pages.Analises', 'uses' => 'App\Http\Controllers\PageController@Analises']);
+		Route::get('Analises', ['as' => 'pages.Analises', 'uses' => 'App\Http\Controllers\apiController@index']);
 		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'App\Http\Controllers\PageController@rtl']);
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);

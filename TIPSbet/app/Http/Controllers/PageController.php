@@ -41,7 +41,7 @@ class PageController extends Controller
      */
     public function Analises()
     {
-        return redirect()->route('api');
+        return view('pages.analises');
     }
 
     /**

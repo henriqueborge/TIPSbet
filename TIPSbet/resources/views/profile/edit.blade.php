@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ __('Editar Perfil') }}</h5>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                <form method="post" action="{{ route('profile.update') }}" autocomplete="on">
                     <div class="card-body">
                             @csrf
                             @method('put')
@@ -31,8 +31,9 @@
                                 @include('alerts.feedback', ['field' => 'Telefone'])
                             </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Save') }}</button>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Atualizar') }}</button>
+                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Desativar') }}</button>
                     </div>
                 </form>
             </div>
@@ -65,7 +66,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Change password') }}</button>
+                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Atualizar senha') }}</button>
                     </div>
                 </form>
             </div>

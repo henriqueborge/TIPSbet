@@ -41,23 +41,6 @@
                             <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
                             @include('alerts.feedback', ['field' => 'email'])
                         </div>
-                        <div class="input-group{{ $errors->has('cpf') ? ' has-danger' : '' }}">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons icon-lock-circle"></i>
-                                </div>
-                            </div>
-                            <input type="cpf" name="cpf" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" placeholder="{{ __('CPF') }}">
-                            @include('alerts.feedback', ['field' => 'cpf'])
-                        </div>
-                        <div class="input-group{{ $errors->has('data_de_nascimento') ? ' has-danger' : '' }}">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons"></i>
-                                </div>
-                            </div>
-                                <input type="text" name="data_nascimento" id="data_nascimento" placeholder="dd/mm/aaaa" required>
-                        </div>
                         <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">

@@ -18,4 +18,13 @@ class UserController extends Controller
     {
         return view('users.index', ['users' => $model->paginate(15)]);
     }
+
+    public function status(){
+        $id=auth()->user()->id;
+        $user= User::find($id);
+        $user-> status='d';
+        $user->update();
+        $this->middleware('guest')->except('logout');
+    }
+
 }
