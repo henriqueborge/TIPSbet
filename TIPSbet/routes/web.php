@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('desativar/{id}',[Controller::class,'desativar'])->name('desativar');
+// routes/web.php
+
+Route::post('/atualizar-imagem', 'UsuarioController@atualizarImagem')->name('atualizar-imagem');
+
+Route::get('desativar/id',[Controller::class,'desativar'])->name('desativar');
 Route::get('odds',[apiController::class,"index"])->name('odds');
 Auth::routes();
 

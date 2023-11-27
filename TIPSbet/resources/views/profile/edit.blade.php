@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ __('Editar Perfil') }}</h5>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}" autocomplete="on">
+                <form method="post" action="{{ route('profile.update') }}" autocomplete="on"  enctype="multipart/form-data">
                     <div class="card-body">
                             @csrf
                             @method('put')
@@ -25,15 +25,14 @@
                                 <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
-                            <div class="form-group{{ $errors->has('Telefone') ? ' has-danger' : '' }}">
-                                <label>Telefone</label>
-                                <input type="Telefone" name="Telefone" class="form-control{{ $errors->has('Telefone') ? ' is-invalid' : '' }}" placeholder="{{ __('Telefone') }}" value="{{ old('Telefone', auth()->user()->Telefone) }}">
-                                @include('alerts.feedback', ['field' => 'Telefone'])
-                            </div>
                     </div>
+                        <label>Foto de Perfil</label>
+                        <input type="file" name="profile_image" >
+                       
+                    
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="submit" class="btn btn-fill btn-primary">{{ __('Atualizar') }}</button>
-                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Desativar') }}</button>
+                        <a href="{{ route('desativar', ['id']) }}" class="btn btn-danger">Desativar</a>
                     </div>
                 </form>
             </div>
@@ -81,7 +80,7 @@
                             <div class="block block-three"></div>
                             <div class="block block-four"></div>
                             <a href="#">
-                                <img class="avatar" src="{{ asset('black') }}/img/emilyz.jpg" alt="">
+                            <img class="avatar" src="{{ url('images/' . auth()->user()->imagem) }}" alt="Foto de Perfil">
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                             </a>
                             <p class="description">

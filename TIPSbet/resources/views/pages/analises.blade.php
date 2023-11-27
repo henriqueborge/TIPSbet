@@ -10,8 +10,8 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Home Team</th>
-                <th>Away Team</th>
+                <th>Casa</th>
+                <th>Visitante</th>
                 <th>Odd casa</th>
                 <th>Odd visitante</th>
                 <th>Data</th>
