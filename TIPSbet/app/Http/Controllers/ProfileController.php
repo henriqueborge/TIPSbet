@@ -28,39 +28,36 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'Telefone' => 'required|string|max:20',
-            'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255',
+        'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-       
-        
+    if ($request->hasFile('profile_image')) {
         $image = $request->file('profile_image');
         $extension = $image->getClientOriginalExtension();
         $name = time() . '.' . $extension;
-      
-        
-        // Mova o arquivo para a pasta public/images
+
+        // Move the file to the public/images folder
         $image->move(public_path('images'), $name);
-        
-       
-        $publicPath = 'images/' . $name;
-        
-       
-        auth()->user()->update([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'Telefone' => $request->input('Telefone'),
-            'imagem' =>  $name,
-        ]);
 
-       
-
-        return redirect()->route('profile.edit')->with('success', 'Perfil atualizado com sucesso.');
+        $publicPath =  $name;
+    } else {
+        // If no image is uploaded, maintain the previous image or set it to null as per your requirements
+        $publicPath = auth()->user()->imagem; // Replace 'imagem' with your actual field name
     }
+
+    auth()->user()->update([
+        'name' => $request->input('name'),
+        'email' => $request->input('email'),
+        'imagem' => $publicPath,
+    ]);
+
+    return back()->withStatus(__('Perfil atualizado com sucesso.'));
+}
+
 
     /**
      * Change the password

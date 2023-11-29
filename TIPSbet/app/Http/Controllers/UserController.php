@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -25,7 +26,9 @@ class UserController extends Controller
         $user= User::find($id);
         $user-> status='d';
         $user->update();
-        $this->middleware('guest')->except('logout');
+        Auth::logout();
+        return redirect('/');
+        
     }
     public function atualizarImagem(Request $request)
     {

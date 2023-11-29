@@ -24,12 +24,6 @@
                     </ul>
                 </div>
             </li>
-            <li @if ($pageSlug == 'Analises') class="active " @endif>
-                <a href="{{ route('pages.Analises') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ __('Analises') }}</p>
-                </a>
-            </li>
         </ul>
     </div>
 </div>

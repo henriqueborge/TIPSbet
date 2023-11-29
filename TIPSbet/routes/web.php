@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/', function () {
 
 Route::post('/atualizar-imagem', 'UsuarioController@atualizarImagem')->name('atualizar-imagem');
 
-Route::get('desativar/id',[Controller::class,'desativar'])->name('desativar');
+Route::get('desativar/id',[UserController::class,'desativar'])->name('desativar');
 Route::get('odds',[apiController::class,"index"])->name('odds');
 Auth::routes();
 
@@ -38,7 +39,6 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->
 
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('Analises', ['as' => 'pages.Analises', 'uses' => 'App\Http\Controllers\apiController@index']);
-		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'App\Http\Controllers\PageController@rtl']);
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);

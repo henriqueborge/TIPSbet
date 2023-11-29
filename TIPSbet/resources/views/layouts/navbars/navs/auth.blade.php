@@ -17,17 +17,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-                <li class="search-bar input-group">
-                    <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
-                        <span class="d-lg-none d-md-block">{{ __('Buscar') }}</span>
-                    </button>
-                </li>
                 <li class="dropdown nav-item">
                 </li>
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="{{ asset('black') }}/img/anime3.png" alt="{{ __('Profile Photo') }}">
+                        <img class="avatar" src="{{ url('images/' . auth()->user()->imagem) }}" alt="Foto de Perfil">
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">{{ __('Log out') }}</p>
@@ -35,9 +30,6 @@
                     <ul class="dropdown-menu dropdown-navbar">
                         <li class="nav-link">
                             <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Perfil') }}</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="#" class="nav-item dropdown-item">{{ __('Configurações') }}</a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">

@@ -3,58 +3,36 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card card-chart">
-                <div class="card-header ">
-                    <div class="row">
-                        <div class="col-sm-6 text-left">
-                            <h5 class="card-category">Total</h5>
-                            <h2 class="card-title">desempenho TIPS simples</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">Desempenho de duplas</h5>
-                    <h3 class="card-title"><i class="tim-icons text-primary"></i></h3>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartLinePurple"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">Desempenho de triplas</h5>
-                    <h3 class="card-title"><i class="tim-icons text-info"></i></h3>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartLineGreen"></canvas>
-                    </div>
-                </div>
-            </div>
+        <div class="container mt-4">
+    <h2>Lista de Odds</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Casa</th>
+                <th>Visitante</th>
+                <th>Odd casa</th>
+                <th>Odd visitante</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($odds as $odd)
+                <tr>
+                    <td>{{ $odd->id }}</td>
+                    <td>{{ $odd->home_team }}</td>
+                    <td>{{ $odd->away_team }}</td>
+                    <td>{{ $odd->odds}}</td>
+                    <td>{{ $odd->odd_visitante}}</td>
+                    <td>{{ \Carbon\Carbon::parse($odd->commence_time)->format('d/m/Y H:i') }}</td>
+
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
         </div>
     </div>
 @endsection
 
-@push('js')
-    <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
-    <script>
-        $(document).ready(function() {
-          demo.initDashboardPageCharts();
-        });
-    </script>
-@endpush
+
